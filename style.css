@@ -1,0 +1,63 @@
+h1, h2, h3, body, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #eae8e8;
+	margin: 0;
+}
+
+canvas{
+	border: 1px solid black;
+	display: block;
+	margin: 0 auto;
+}
+
+nav {
+	background: #fca044;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-bottom: 3px solid #E45C10;
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	list-style: none;
+}
+nav ul li a{
+	font-size: 30px;
+	color: #00A800;
+}
+nav ul li a:hover{
+	color: #00B800;
+}
+
+
+canvas.se-preview{
+	margin-top: 20px;
+}
+
+div.preview{
+	width: 270px;
+	height: 30px;
+	border : 1px solid black;
+	margin: 20px auto;
+}
+
+ul.color{
+	width: 480px;
+	font-size: 0;
+	margin: 0 auto;
+	padding: 0;
+}
+
+ul.color li{
+	width: 	30px;
+	height: 30px;
+	display: inline-block;
+}
