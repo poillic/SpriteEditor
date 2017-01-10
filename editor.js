@@ -5,10 +5,14 @@ var Editor = function(_x, _y, _step) {
 	this.cvs.height = _y * 30;
 	this.dimension = {x: _x, y: _y };
 	this.step = _step;
-
+	this.state = "draw";
 	this.projectName = "";
-	this.saveButton = document.querySelector(".js-save");
+	/* Buttons */
 
+	this.saveButton = document.querySelector(".js-save");
+	this.eraserButton = document.querySelector(".js-eraser");
+
+	/* SubObjects */
 	this.colorStamp = new ColorStamp();
 	this.previewCanvas = new PreviewCanvas(this.dimension.x, this.dimension.y);
 
@@ -56,6 +60,7 @@ var Editor = function(_x, _y, _step) {
 		}
 
 		this.saveButton.addEventListener('click', this.saveSheet.bind(this));
+		this.eraserButton .addEventListener('click', this.erase.bind(this));
 	}
 
 	this.render = function(){
@@ -76,8 +81,12 @@ var Editor = function(_x, _y, _step) {
 		this.saveButton.href = url;
 	}
 
+	this.erase = function(){
+		this.state = "erase";
+	}
+
 	this.initialize();
 
 };
 
-var editor = new Editor(16, 8, 8);
+var editor = new Editor(24, 8, 8);
