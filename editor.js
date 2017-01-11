@@ -64,6 +64,8 @@ var Editor = function(_x, _y, _step) {
 	}
 
 	this.render = function(){
+		this.ctx.clearRect(0, 0, this.dimension.x * 30, this.dimension.y * 30 );
+
 		for(var y = 0; y < this.dimension.y; y++){
 			for(var x = 0; x < this.dimension.x; x++){
 				this.ctx.fillStyle = this.grid[y][x];
