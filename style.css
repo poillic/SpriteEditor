@@ -72,8 +72,6 @@ div.se-toolbar a{
 }
 
 div.previewAnim{
-	width: 16px;
-	height: 16px;
 	border: 1px solid black;
 	display: inline-block;
 	vertical-align: middle;
@@ -87,7 +85,7 @@ div.preview{
 }
 
 ul.color{
-	width: 480px;
+	width: 510px;
 	font-size: 0;
 	margin: 0 auto;
 	padding: 0;

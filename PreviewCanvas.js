@@ -3,9 +3,9 @@ var PreviewCanvas = function(_x, _y){
 	this.cvs = document.querySelector('.js-preview');
 	this.ctx = this.cvs.getContext('2d');
 	this.dimension = {x: _x, y: _y}
-	this.cvs.width = _x*2;
-	this.cvs.height = _y*2;
-	this.ctx.scale(2,2);
+	this.cvs.width = _x;
+	this.cvs.height = _y;
+	this.ctx.scale(1,1);
 
 	this.renderFromData = function(data){
 		this.ctx.clearRect(0,0,this.cvs.width, this.cvs.height);

@@ -14,11 +14,15 @@ var ColorStamp = function(){
 			this.lis[i].style.backgroundColor = "#"+color;
 			this.lis[i].addEventListener('click', this.pickColor.bind(this));
 		}
+
+		this.displayColor();
 	}
 
 	this.pickColor = function(e){
-		this.color = "#" + e.currentTarget.dataset.color;
-		this.displayColor();
+		if(this.state == "pen"){
+			this.color = "#" + e.currentTarget.dataset.color;
+			this.displayColor();
+		}
 	};
 
 	this.displayColor = function(){

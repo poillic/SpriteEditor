@@ -16,8 +16,9 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 	this.saveButton = document.querySelector(".js-save");
 	this.eraserButton = document.querySelector(".js-eraser");
 	this.playAnimButton = document.querySelector(".js-playAnim");
-	this.previewAnim = document.querySelector(".js-previewAnim");
 	this.penButton = document.querySelector(".js-pen");
+	this.clearButton = document.querySelector(".js-clear");
+	this.previewAnim = document.querySelector(".js-previewAnim");
 
 	/* SubObjects */
 	this.colorStamp = new ColorStamp();
@@ -41,11 +42,11 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 	}
 
 	this.getClickPosition = function(e){
-		var cx = e.clientX - this.cvs.offsetLeft;
-		var cy = e.clientY - this.cvs.offsetTop;
+		var cx = e.pageX - this.cvs.offsetLeft + this.cvs.parentElement.scrollLeft;
+		var cy = e.pageY - this.cvs.offsetTop + this.cvs.parentElement.scrollTop;
 
 		var x = Math.floor(cx/30);
-		var y = Math.floor((cy/30)%this.dimension.y);
+		var y = Math.floor((cy/30) % this.dimension.y);
 
 		this.grid[y][x] = this.colorStamp.color;
 		this.render();
@@ -66,6 +67,15 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 		this.state = "none";
 	}
 
+	this.initGrid = function(){
+		for(var y = 0; y < this.dimension.y; y++){
+			this.grid[y] = [];
+			for(var x = 0; x < this.dimension.x; x++){
+				this.grid[y][x] = "rgba(0,0,0,0)";
+			}
+		}
+	}
+
 	this.initialize = function(){
 		this.generateGrid();
 
@@ -74,17 +84,13 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 		this.cvs.addEventListener('mouseup', this.onMouseUp.bind(this));
 		this.cvs.addEventListener('mouseleave', this.onMouseUp.bind(this));
 
-		for(var y = 0; y < this.dimension.y; y++){
-			this.grid[y] = [];
-			for(var x = 0; x < this.dimension.x; x++){
-				this.grid[y][x] = "rgba(0,0,0,0)";
-			}
-		}
+		this.initGrid();
 
 		this.saveButton.addEventListener('click', this.saveSheet.bind(this));
 		this.eraserButton .addEventListener('click', this.erase.bind(this));
 		this.penButton.addEventListener('click', this.pen.bind(this));
 		this.playAnimButton.addEventListener('click', this.playAnimHandler.bind(this));
+		this.clearButton.addEventListener('click', this.clearGrid.bind(this));
 	}
 
 	this.render = function(){
@@ -100,8 +106,16 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 		this.generateGrid();
 	}
 
+	this.clearGrid = function(){
+		var con = confirm('Do you REALLY want to clear your board ?');
+
+		this.initGrid();
+		this.render();
+	}
+
 	this.playAnimHandler = function(){
-		
+		this.previewAnim.style.width = this.frameDim.x+"px";
+		this.previewAnim.style.height = this.frameDim.y+"px";
 		this.previewAnim.style.backgroundPosition = "0px 0px";
 		this.previewAnim.dataset.frame = 0;
 
@@ -115,7 +129,7 @@ var Editor = function(_x, _y, _step, _frames, _name) {
 	this.playAnim = function(){
 		this.previewAnim.style.background = "url("+this.previewCanvas.cvs.toDataURL()+")";
 		this.previewAnim.dataset.frame++;
-		var posX = this.previewAnim.dataset.frame * -16;
+		var posX = this.previewAnim.dataset.frame * - this.frameDim.x;
 		this.previewAnim.style.backgroundPosition = posX + "px 0px";
 
 	}
