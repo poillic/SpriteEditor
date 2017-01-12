@@ -11,91 +11,123 @@
 			<li></li>
 		</ul>
 	</nav>
-	<div>
-		<canvas class="se-canvas js-canvas"></canvas>
-		<canvas class="se-preview js-preview"></canvas>
-	</div>
-	<div>
-		<div>
-			<button class="js-pen"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-			<button class="js-eraser"><i class="fa fa-eraser" aria-hidden="true"></i></button>
-			<button class="js-playAnim"><i class="fa fa-play" aria-hidden="true"></i></button>
-			<button class="js-addFrame"><i class="fa fa-plus" aria-hidden="true"></i></button>
-			<button class="js-removeFrame"><i class="fa fa-minus" aria-hidden="true"></i></button>
-			<a class="js-save" href="#"><i class="fa fa-download" aria-hidden="true"></i></a>
+	<section class="se-setup js-setup">
+		<h2>New project</h2>
+		<form class="js-new-project">
+			<ul>
+				<li>
+					<label>Project Name : </label>
+					<input class="js-name" type="text" name="width" >
+				</li>
+				<li>
+					<label>Width : </label>
+					<input class="js-width" type="number" name="width" value="8">
+				</li>
+				<li>
+					<label>Height : </label>
+					<input class="js-height" type="number" name="height" value="8">
+				</li>
+				<li>
+					<label>Frames nb : </label>
+					<input class="js-frames" type="number" name="frames" value="4">
+				</li>
+				<li>
+					<input class="js-go" type="submit" value="Go !">
+				</li>
+			</ul>
+		</form>
+	</section>
+
+	<section class="se-board js-board hide">
+		<div class="se-cvs-window">
+			<canvas class="se-canvas js-canvas"></canvas>
 		</div>
-		<div class="preview"></div>
-		<ul class="color">
-			<li data-color="7C7C7C"></li>
-			<li data-color="0000FC"></li>
-			<li data-color="0000BC"></li>
-			<li data-color="4428BC"></li>
-			<li data-color="940084"></li>
-			<li data-color="A80020"></li>
-			<li data-color="A81000"></li>
-			<li data-color="881400"></li>
-			<li data-color="503000"></li>
-			<li data-color="007800"></li>
-			<li data-color="006800"></li>
-			<li data-color="005800"></li>
-			<li data-color="004058"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-			<li data-color="BCBCBC"></li>
-			<li data-color="0078F8"></li>
-			<li data-color="0058F8"></li>
-			<li data-color="6844FC"></li>
-			<li data-color="D800CC"></li>
-			<li data-color="E40058"></li>
-			<li data-color="F83800"></li>
-			<li data-color="E45C10"></li>
-			<li data-color="AC7C00"></li>
-			<li data-color="00B800"></li>
-			<li data-color="00A800"></li>
-			<li data-color="00A844"></li>
-			<li data-color="008888"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-			<li data-color="F8F8F8"></li>
-			<li data-color="3CBCFC"></li>
-			<li data-color="6888FC"></li>
-			<li data-color="9878F8"></li>
-			<li data-color="F878F8"></li>
-			<li data-color="F85898"></li>
-			<li data-color="F87858"></li>
-			<li data-color="FCA044"></li>
-			<li data-color="F8B800"></li>
-			<li data-color="B8F818"></li>
-			<li data-color="58D854"></li>
-			<li data-color="58F898"></li>
-			<li data-color="00E8D8"></li>
-			<li data-color="787878"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-			<li data-color="FCFCFC"></li>
-			<li data-color="A4E4FC"></li>
-			<li data-color="B8B8F8"></li>
-			<li data-color="D8B8F8"></li>
-			<li data-color="F8B8F8"></li>
-			<li data-color="F8A4C0"></li>
-			<li data-color="F0D0B0"></li>
-			<li data-color="FCE0A8"></li>
-			<li data-color="F8D878"></li>
-			<li data-color="D8F878"></li>
-			<li data-color="B8F8B8"></li>
-			<li data-color="B8F8D8"></li>
-			<li data-color="00FCFC"></li>
-			<li data-color="F8D8F8"></li>
-			<li data-color="000000"></li>
-			<li data-color="000000"></li>
-		</ul>
-	</div>
+		<div>
+			<canvas class="se-preview js-preview"></canvas>
+			<div class="se-toolbar" >
+				<button class="js-pen"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+				<button class="js-eraser"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+				<button class="js-playAnim"><i class="fa fa-play" aria-hidden="true"></i></button>
+				<button class="js-addFrame"><i class="fa fa-plus" aria-hidden="true"></i></button>
+				<button class="js-removeFrame"><i class="fa fa-minus" aria-hidden="true"></i></button>
+				<div class="previewAnim js-previewAnim" src="http://placehold.it/16x16"></div>
+				<a class="js-save" href="#"><i class="fa fa-download" aria-hidden="true"></i></a>
+			</div>
+			<div class="preview"></div>
+			<ul class="color">
+				<li data-color="7C7C7C"></li>
+				<li data-color="0000FC"></li>
+				<li data-color="0000BC"></li>
+				<li data-color="4428BC"></li>
+				<li data-color="940084"></li>
+				<li data-color="A80020"></li>
+				<li data-color="A81000"></li>
+				<li data-color="881400"></li>
+				<li data-color="503000"></li>
+				<li data-color="007800"></li>
+				<li data-color="006800"></li>
+				<li data-color="005800"></li>
+				<li data-color="004058"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+				<li data-color="BCBCBC"></li>
+				<li data-color="0078F8"></li>
+				<li data-color="0058F8"></li>
+				<li data-color="6844FC"></li>
+				<li data-color="D800CC"></li>
+				<li data-color="E40058"></li>
+				<li data-color="F83800"></li>
+				<li data-color="E45C10"></li>
+				<li data-color="AC7C00"></li>
+				<li data-color="00B800"></li>
+				<li data-color="00A800"></li>
+				<li data-color="00A844"></li>
+				<li data-color="008888"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+				<li data-color="F8F8F8"></li>
+				<li data-color="3CBCFC"></li>
+				<li data-color="6888FC"></li>
+				<li data-color="9878F8"></li>
+				<li data-color="F878F8"></li>
+				<li data-color="F85898"></li>
+				<li data-color="F87858"></li>
+				<li data-color="FCA044"></li>
+				<li data-color="F8B800"></li>
+				<li data-color="B8F818"></li>
+				<li data-color="58D854"></li>
+				<li data-color="58F898"></li>
+				<li data-color="00E8D8"></li>
+				<li data-color="787878"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+				<li data-color="FCFCFC"></li>
+				<li data-color="A4E4FC"></li>
+				<li data-color="B8B8F8"></li>
+				<li data-color="D8B8F8"></li>
+				<li data-color="F8B8F8"></li>
+				<li data-color="F8A4C0"></li>
+				<li data-color="F0D0B0"></li>
+				<li data-color="FCE0A8"></li>
+				<li data-color="F8D878"></li>
+				<li data-color="D8F878"></li>
+				<li data-color="B8F8B8"></li>
+				<li data-color="B8F8D8"></li>
+				<li data-color="00FCFC"></li>
+				<li data-color="F8D8F8"></li>
+				<li data-color="000000"></li>
+				<li data-color="000000"></li>
+			</ul>
+		</div>
+	</section>
+
 	<script src="https://use.fontawesome.com/68384d97aa.js"></script>
 	<script type="text/javascript" src="PreviewCanvas.js"></script>
 	<script type="text/javascript" src="colorStamp.js"></script>
 	<script type="text/javascript" src="editor.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 	
 </body>
 </html>

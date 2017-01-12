@@ -1,6 +1,7 @@
 h1, h2, h3, body, ul, li {
 	margin: 0;
 	padding: 0;
+	list-style: none; 
 }
 
 body{
@@ -37,16 +38,52 @@ nav ul li a:hover{
 	color: #00B800;
 }
 
+.hide{
+	display: none;
+}
+
+div.se-cvs-window{
+	overflow: auto;
+}
+
+section.se-setup{
+	max-width: 250px;
+	border: 1px solid black;
+	margin: 0 auto;
+	padding: 20px;
+	background: #fafafa;
+}
 
 canvas.se-preview{
 	margin-top: 20px;
+}
+
+div.se-toolbar{
+	width: 500px;
+	background: #bcbcbc;
+	margin: 10px auto;
+	text-align: center;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+div.se-toolbar a{
+	color: black;
+}
+
+div.previewAnim{
+	width: 16px;
+	height: 16px;
+	border: 1px solid black;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 div.preview{
 	width: 270px;
 	height: 30px;
 	border : 1px solid black;
-	margin: 20px auto;
+	margin: 10px auto;
 }
 
 ul.color{
@@ -60,4 +97,9 @@ ul.color li{
 	width: 	30px;
 	height: 30px;
 	display: inline-block;
+}
+
+input[type=number]{
+	width: 50px;
+	margin: 5px 0;
 }
